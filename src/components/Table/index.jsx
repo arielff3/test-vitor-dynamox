@@ -44,10 +44,10 @@ export const Table = ({
     fetchData({ pageIndex: pageIndex + 1 })
   }, [fetchData, pageIndex])
   return (
-    <>
+    <section className=" overflow-auto w-full">
       <table
         {...getTableProps()}
-        className="border-separate border-spa w-full h-full"
+        className="border-separate border-spa w-full h-full w-full"
         style={{
           borderSpacing: '0px 7px',
         }}
@@ -133,6 +133,6 @@ export const Table = ({
           </strong>{' '}
         </span>
       </div>
-    </>
+    </section>
   )
 }

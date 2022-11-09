@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Header } from 'src/components/Header'
 import { Table } from 'src/components/Table'
 import { Button } from 'src/components/Button'
+import { Loading } from 'src/components/Loading'
 import { columns } from './constants'
 import { getProducts } from './controller'
 import { ModalCreate } from './components/ModalCreate'
@@ -20,19 +21,18 @@ export const Products = () => {
     data: null,
   })
 
-  const { refetch } = useQuery(
+  const { refetch, isLoading } = useQuery(
     [page],
     async () => getProducts({ page, setModalEditProduct }),
     {
       onSuccess: response => {
         setData(response)
       },
-      refetchOnMount: false,
-      refetchOnWindowFocus: false,
     },
   )
   return (
     <section>
+      {isLoading && <Loading />}
       <ModalCreate
         modalState={[modalCreateProductIsOpen, setModalCreateProductIsOpen]}
         closeModal={() => {
@@ -41,7 +41,6 @@ export const Products = () => {
         }}
       />
       <ModalEdit
-        // modalState, closeModal, product
         modalState={[modalEditProduct, setModalEditProduct]}
         closeModal={() => {
           setModalEditProduct({

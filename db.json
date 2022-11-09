@@ -9,7 +9,7 @@
   "products": [
     {
       "id": 1,
-      "name": "Ariel",
+      "name": "Ariel 2",
       "perishable": true,
       "price": "10",
       "expirationDate": "2022-11-09T03:00:00.000Z",
@@ -414,6 +414,54 @@
       "expirationDate": "2022-11-10T03:00:00.000Z",
       "manufactureDate": "2022-11-08T03:00:00.000Z",
       "id": 51
+    },
+    {
+      "name": "22",
+      "price": "22",
+      "perishable": false,
+      "expirationDate": null,
+      "manufactureDate": "2022-11-03T03:00:00.000Z",
+      "id": 52
+    },
+    {
+      "name": "new",
+      "price": "12312",
+      "perishable": false,
+      "expirationDate": null,
+      "manufactureDate": "2022-11-02T03:00:00.000Z",
+      "id": 53
+    },
+    {
+      "name": "new",
+      "price": "12312",
+      "perishable": true,
+      "expirationDate": "2022-11-10T03:00:00.000Z",
+      "manufactureDate": "2022-11-02T03:00:00.000Z",
+      "id": 54
+    },
+    {
+      "name": "new2",
+      "price": "12312",
+      "perishable": true,
+      "expirationDate": "2022-11-10T03:00:00.000Z",
+      "manufactureDate": "2022-11-02T03:00:00.000Z",
+      "id": 55
+    },
+    {
+      "name": "213",
+      "price": "123",
+      "perishable": true,
+      "expirationDate": "2022-11-10T03:00:00.000Z",
+      "manufactureDate": "2022-11-02T03:00:00.000Z",
+      "id": 56
+    },
+    {
+      "name": "teste",
+      "price": "123",
+      "perishable": false,
+      "expirationDate": null,
+      "manufactureDate": "2022-11-03T03:00:00.000Z",
+      "id": 57
     }
   ]
 }

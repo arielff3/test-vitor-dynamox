@@ -26,6 +26,9 @@ export const ModalCreate = ({ modalState, closeModal }) => {
     {
       onSuccess: () => {
         closeModal()
+        reset()
+        setExpirationDate(null)
+        setManufactureDate(null)
         toast('Produto criado com sucesso!', {
           type: 'success',
         })

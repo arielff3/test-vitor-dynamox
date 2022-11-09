@@ -14,19 +14,19 @@ export const columns = [
     },
   },
   {
-    Header: 'Produto perecível',
-    accessor: 'perishable',
-    Cell: ({ row }) => {
-      const { perishable } = row.original
-      return perishable ? 'Sim' : 'Não'
-    },
-  },
-  {
     Header: 'Data de validade',
     accessor: 'expirationDate',
     Cell: ({ row }) => {
       const { expirationDate } = row.original
       return format(new Date(expirationDate), 'dd/MM/yyyy')
+    },
+  },
+  {
+    Header: 'Produto perecível',
+    accessor: 'perishable',
+    Cell: ({ row }) => {
+      const { perishable } = row.original
+      return perishable ? 'Sim' : 'Não'
     },
   },
   {

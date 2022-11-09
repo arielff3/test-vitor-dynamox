@@ -4,6 +4,7 @@ import {
   Route,
   Routes as RoutesReactRouterDom,
 } from 'react-router-dom'
+import { Loading } from 'src/components/Loading'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { PublicRoute } from './components/PublicRoute'
 
@@ -11,7 +12,7 @@ import { Login, Products } from './paths'
 
 export const Routes = () => {
   return (
-    <Suspense fallback={<p>carregando</p>}>
+    <Suspense fallback={<Loading />}>
       <RoutesReactRouterDom>
         <Route element={<PublicRoute />}>
           <Route path="/" element={<Login />} />

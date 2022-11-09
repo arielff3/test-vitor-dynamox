@@ -6,6 +6,8 @@ export const getProducts = async ({ page, setModalEditProduct }) => {
     params: {
       _page: page,
       _limit: 10,
+      _order: 'desc',
+      _sort: 'id',
     },
   })
   return {
