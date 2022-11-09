@@ -5,8 +5,9 @@ export const Login = lazy(() =>
     default: module.Login,
   })),
 )
-export const GenericNotFound = lazy(() =>
-  import('src/pages/GenericNotFound').then(module => ({
-    default: module.GenericNotFound,
+
+export const Products = lazy(() =>
+  import('src/pages/Products').then(module => ({
+    default: module.Products,
   })),
 )

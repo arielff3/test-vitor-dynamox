@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import ErrorBoundary from './routes/components/ErrorBoundary'
 import { Routes } from './routes/Routes'
 import 'react-toastify/dist/ReactToastify.css'
+import 'react-datepicker/dist/react-datepicker.css'
 
 export const App = () => {
   const client = new QueryClient()

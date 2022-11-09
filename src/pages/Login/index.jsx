@@ -1,35 +1,33 @@
 import { Button } from 'src/components/Button'
 import { Input } from 'src/components/Input'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from 'src/store/slices/authThunk'
 import { useForm } from 'react-hook-form'
-import { useMutation } from '@tanstack/react-query'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import { toast } from 'react-toastify'
-import logoMini from './assets/logo-mini.png'
-import logo from './assets/logo.png'
+import { useNavigate } from 'react-router-dom'
+import logo from 'src/assets/logo.png'
+import logoMini from 'src/assets/logo-mini.png'
 
 export const Login = () => {
   const dispatch = useDispatch()
+  const { loading, error, token } = useSelector(state => state.auth)
   const { register, handleSubmit } = useForm()
   const navigate = useNavigate()
+  useEffect(() => {
+    if (error) {
+      toast('Usuário ou senha inválidos', {
+        type: 'error',
+      })
+    }
+  }, [error])
 
-  const { mutate, isLoading } = useMutation(
-    data => {
-      const response = dispatch(login(data))
-      return response
-    },
-    {
-      onSuccess: () => {
-        navigate('/dashboard')
-      },
-      onError: () => {
-        toast('Usuário ou senha inválidos', {
-          type: 'error',
-        })
-      },
-    },
-  )
+  useEffect(() => {
+    if (token) {
+      navigate('/produtos')
+    }
+  }, [token, navigate])
+
   return (
     <section className="min-h-screen flex md:grid md:grid-cols-[60%,40%]">
       <aside className="bg-[#44142d] hidden md:flex justify-center items-center flex-col">
@@ -39,12 +37,12 @@ export const Login = () => {
         <img src={logoMini} alt="logo" className="md:hidden w-10rem mb-10" />
         <form
           className="w-full md:max-w-20rem flex justify-center flex-col items-center"
-          onSubmit={handleSubmit(mutate)}
+          onSubmit={handleSubmit(data => dispatch(login(data)))}
         >
           <Input
             type="email"
             placeholder="E-mail"
-            value="vitor@dynamsox.com.br"
+            value="vitor@dynamox.com.br"
             {...register('email')}
           />
           <Input
@@ -54,7 +52,12 @@ export const Login = () => {
             value="dynamox"
             {...register('password')}
           />
-          <Button type="submit" className="mt-2" isLoading={isLoading}>
+          <Button
+            type="submit"
+            className="mt-2"
+            isLoading={loading}
+            disabled={loading}
+          >
             LOGIN
           </Button>
         </form>

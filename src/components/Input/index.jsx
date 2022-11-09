@@ -10,18 +10,12 @@ export const Input = memo(
           } ${className}`}
         >
           <input
-            className={`outline-[0px] flex-grow font-epilogue ${
-              error && 'text-danger'
-            }`}
+            className="outline-[0px] flex-grow font-epilogue"
             type="text"
             ref={ref}
-            data-testid="input"
             {...props}
           />
         </div>
-        {error && (
-          <p className="text-danger font-epilogue text-xs mt-1 ml-1">{error}</p>
-        )}
       </div>
     )
   }),
