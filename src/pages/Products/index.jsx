@@ -63,7 +63,7 @@ export const Products = () => {
             Criar produto
           </Button>
         </div>
-        {data?.data && (
+        {data?.data && data?.total > 0 && (
           <Table
             columns={columns}
             pageCount={Math.ceil(data.total / 10)}
@@ -76,6 +76,9 @@ export const Products = () => {
               )
             }}
           />
+        )}
+        {data?.data && data?.total === 0 && (
+          <p className="mt-3">Nenhum produto encontrado</p>
         )}
       </div>
     </section>
