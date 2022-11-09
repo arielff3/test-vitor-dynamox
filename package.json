@@ -7,11 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "ui": "vitest --ui",
     "lint": "eslint src --ext .js,.jsx && prettier --write src",
-    "coverage": "vitest run --coverage",
-    "test": "vitest src --watch=false",
-    "test:watch": "vitest src --watch"
+    "server": "json-server --deley 1500 db.json -m ./node_modules/json-server-auth"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
